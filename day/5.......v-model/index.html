@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+<body>
+
+<div id="app">
+    <!--<input type="text" v-model="name">-->
+    <!--trim空格去除  number转数字-->
+    <!--<input type="text" v-model.lazy="name">  &lt;!&ndash;惰性更新&ndash;&gt;-->
+
+    <!--还可以在textarea select中使用-->
+
+    <!--<label>-->
+        <!--男-->
+        <!--<input v-model="sex" name="sex" value="male" type="radio">-->
+    <!--</label>-->
+    <!--<label>-->
+        <!--女-->
+        <!--<input v-model="sex" name="sex" value="female" type="radio">-->
+    <!--</label>-->
+    <!--<br>-->
+    <!--{{sex}}-->
+
+    <label>
+        男
+        <input v-model="sex" name="sex" value="male" type="checkbox">
+    </label>
+    <label>
+        女
+        <input v-model="sex" name="sex" value="female" type="checkbox">
+    </label>
+    <br>
+    {{sex}}
+
+
+    <br>
+    <textarea v-model="article"></textarea>
+
+    <br>
+    <div>你来自哪里</div>
+    <select v-model="from">
+        <option value="1">beijing</option>
+        <option value="2">guangzhou</option>
+        <option value="3">default</option>
+    </select>
+
+    <br>
+    <div>你要去哪里</div>
+    <select v-model="dest" multiple>
+        <option value="1">beijing</option>
+        <option value="2">guangzhou</option>
+        <option value="3">default</option>
+    </select>
+    {{dest}}
+</div>
+
+
+<script src="../lib/vue.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

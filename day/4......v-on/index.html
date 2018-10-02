@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+<body>
+<!--可以把v-on省略只写@-->
+<div id="app">
+    <!--v-on绑定事件,定义在methods-->
+    <button v-on="{mouseenter: onEnter, mouseleave: onOut}" v-on:click="onClick">点我</button>
+    <!--.prevent--阻止默认  和.stop--阻止冒泡,
+      v-on:keyup.enter ="onEnter2" 回车后执行
+      -->
+    <form v-on:keyup="onKeyup" v-on:submit.prevent="onSubmit">
+        <input type="text">
+        <button type="submit">提交</button>
+    </form>
+</div>
+
+
+<script src="../lib/vue.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <div>
+        <input type="text" v-model = "name">
+        <span v-show="name">您的名字：{{name}}</span>
+    </div>
+    <div>
+        <input type="text" v-model = "age">
+        <span v-show="age">您的age：{{age}}</span>
+    </div>
+    <div>
+        <input type="text" v-model = "sex">
+        <span v-show="sex">您的性别：{{sex}}</span>
+    </div>
+
+</div>
+
+
+<script src="../lib/vue.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .liked{
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <like>
+<!--TODO-->
+    </like>
+</div>
+
+
+
+<template id="like-tpl">
+    <button :class="{liked: liked}" @click="toggle_like()">
+        ⭐{{like_count}}
+    </button>
+</template>
+
+<script src="../lib/vue.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
