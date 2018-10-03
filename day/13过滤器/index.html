@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <div>
+        <input v-model="length"> mm =
+        {{length | meter('m') }}
+    </div>
+    <hr>
+    <div>
+        <input v-model="price">
+        <!--('USD')传的是unit-->
+        {{ price | currency('USD') }}
+    </div>
+
+
+
+
+</div>
+
+<script src="../lib/vue.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

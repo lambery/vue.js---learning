@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .panel{
+            max-width: 300px;
+            border: 1px solid #999;
+            margin-bottom: 15px;
+        }
+        .panel > * {
+            padding: 15px;
+        }
+        .panel .title{
+            border-bottom: 1px solid #999;
+        }
+        .panel .footer{
+            border-top: 1px solid #999;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <panel>
+        <div slot="title">镖旗</div>
+        <div slot="content">受打击啦</div>
+    </panel>
+
+    <panel>
+        <div slot="title">暗杀吧</div>
+    </panel>
+</div>
+
+
+<template id="panel-tpl">
+    <div class="panel">
+        <div class="title">
+            <slot name="title"></slot>
+        </div>
+        <div class="content">
+            <!--插槽！！！！！写了name="content"就专门指定html中的content-->
+            <slot name="content"></slot>
+        </div>
+        <div class="footer">momo</div>
+    </div>
+</template>
+
+<script src="../lib/vue.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
