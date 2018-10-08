@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="inputValue">
+		<button v-on:click="handleBtnClick">提交</button>
+		<ul>
+			<!--<li v-for='item in list'>{{item}}</li>-->
+			<todo-item v-bind:content="item" v-for='item in list'></todo-item>
+		</ul>
+	</div>
+
+<script>
+//	mvvm
+//	M层 模型层（如ajax）
+//	V层 视图
+//	vm层  vue帮实现
+
+//    Vue.component('TodoItem',{
+//		props:['content'],
+//		template: "<li>{{content}}</li>>"
+//	});
+
+	var TodoItem = {
+		props:['content'],
+		template: "<li>{{content}}</li>>"
+	};
+
+	var app = new Vue({
+		el: '#app',
+		components: {
+			TodoItem: TodoItem
+		},
+		data: {
+			list:[],
+			inputValue: ''
+		},
+		methods: {
+			handleBtnClick: function () {
+				this.list.push(this.inputValue);
+				this.inputValue = '';
+			}
+		}
+	})
+
+</script>
+</body>
+</html>

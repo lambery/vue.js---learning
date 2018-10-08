@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="inputValue">
+		<button v-on:click="handleBtnClick">提交</button>
+		<ul>
+			<!--<li v-for='item in list'>{{item}}</li>-->
+			<!--v-bind 父组件向子组件传值 可以简写成：-->
+			<todo :content="item"
+					   v-bind:index="index"
+					   v-for='(item, index) in list'
+						@delete="handleItemDelete">
+
+			</todo>
+		</ul>
+	</div>
+
+<script>
+//	mvvm
+//	M层 模型层（如ajax）
+//	V层 视图
+//	vm层  vue帮实现
+
+//    Vue.component('TodoItem',{
+//		props:['content'],
+//		template: "<li>{{content}}</li>>"
+//	});
+
+	var todo = {
+		props:['content','index'], //接收父组件的值
+		template: "<li @click='handleItemClick'>{{content}}</li>",
+		methods: {
+			handleItemClick: function () {
+				this.$emit('delete',this.index);//子组件可以使用 $emit 触发父组件的自定义事件
+			}
+		}
+	};
+
+	var app = new Vue({
+		el: '#app',
+		components: {
+			todo: todo
+		},
+		data: {
+			list:[],
+			inputValue: ''
+		},
+		methods: {
+			handleBtnClick: function () {
+				this.list.push(this.inputValue);
+				this.inputValue = '';
+			},
+			handleItemDelete:function (index) {
+				this.list.splice(index,1);
+			}
+		}
+	})
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <input id="input" type="text">
+    <button id="btn">提交</button>
+    <ul id="ul">
+    </ul>
+</div>
+
+<script src="jquery.min.js"></script>
+<script>
+    //m模型层（如ajax） v视图  p控制器（操作dom等）
+    //vue省略了p层
+    function Page() {}
+
+    $.extend(Page.prototype, {
+        init: function () {
+            this.bindEvents()
+        },
+        bindEvents: function () {
+            var btn = $('#btn');
+            btn.on('click', $.proxy(this.handleBtnClick, this))
+        },
+        handleBtnClick: function () {
+            var inputValue = $('#input').val();
+            var ulElem = $("#ul");
+            ulElem.append('<li>'+ inputValue +'</li>');
+            $('#input').val('');
+        }
+    });
+    var page = new Page();
+    page.init();
+</script>
+</body>
+</html>
