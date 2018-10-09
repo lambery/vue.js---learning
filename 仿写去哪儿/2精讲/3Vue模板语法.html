@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--v-text和{{}}一样  v-html会转义  v-语法里可以写js内容-->
+        <div>{{name + '1212'}}</div>
+        <div v-text="name + 'Lee'"></div>
+        <div v-html="name + 'Lee'"></div>
+    </div>
+
+<script>
+
+    var vm =new Vue({
+        el: '#app',
+        data: {
+            name: '<h1>hello world</h1>'
+        }
+    })
+</script>
+</body>
+</html>

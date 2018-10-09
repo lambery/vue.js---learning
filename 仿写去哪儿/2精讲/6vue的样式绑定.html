@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .activated{
+            color: #ff0012;
+        }
+        .activated2{
+            background: #aabbcc;
+        }
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <!--<div id="app" @click="handleDivClick"-->
+                  <!--:class="{activated: isActivated}"-->
+    <!--&gt;-->
+        <!--hey!!!-->
+    <!--</div>-->
+
+    <div id="app" @click="handleDivClick"
+         :class="[activated1,activated2]"
+    >
+        hey!!!
+    </div>
+
+    <script>
+//        var vm = new Vue({
+//            el: '#app',
+//            data: {
+//                isActivated: false
+//            },
+//            methods: {
+//                handleDivClick: function () {
+//                    this.isActivated = !this.isActivated;
+//                }
+//            }
+//        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                activated1: '',
+                activated2: 'activated2'
+            },
+            methods: {
+                handleDivClick: function () {
+                    if (this.activated1 === 'activated') {
+                        this.activated1 = '';
+                    } else {
+                        this.activated1 = 'activated';
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

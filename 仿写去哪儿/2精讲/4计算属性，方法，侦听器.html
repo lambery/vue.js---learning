@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{fullName}}
+    {{age}}
+    {{fullName2()}}
+    {{fullName3}}
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            firstName: 'dell',
+            lastName: 'Lee',
+            fullName3: 'dell Lee',
+            age: '18'
+        },
+        computed: {  //计算属性,有缓存，性能好
+            fullName: function () {
+                console.log('计算了一次');
+               return (this.firstName + " " + this.lastName)
+            }
+        },
+        methods: {
+            fullName2: function () {
+                return (this.firstName + " " + this.lastName)
+            }
+        },
+        watch: { //和computed类似，有缓存，但复杂了
+            firstName: function () {
+                console.log('计算了一次');
+                this.fullName3 = this.firstName + " " + this.lastName;
+            },
+            lastName: function () {
+                console.log('计算了一次');
+                this.fullName3 = this.firstName + " " + this.lastName;
+            }
+        }
+    })
+</script>
+</body>
+</html>
