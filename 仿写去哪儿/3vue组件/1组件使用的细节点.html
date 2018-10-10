@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+
+<div id="root">
+    <table>
+        <tbody>
+        <tr>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+        </tr>
+        <!--不写is就会跑到外面-->
+        <tr is="row"></tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    Vue.component('row',{
+        template: `
+          <tr>
+            <td>this is a row</td>
+          </tr>
+        `
+    });
+    var vm = new Vue({
+        el: '#root',
+        data: {}
+    })
+</script>
+</body>
+</html>

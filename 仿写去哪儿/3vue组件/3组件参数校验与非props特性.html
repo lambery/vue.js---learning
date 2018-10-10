@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+
+<div id="root">
+ <child content="hello world"></child>
+</div>
+<script>
+    
+
+    Vue.component('child', {
+       // props:{
+       //     content: {
+       //         type: String,
+       //         //required: false,
+       //         //default: 'default value'
+       //         validator: function (value) {
+       //             return (value.length > 5)
+       //         }
+       //     }
+       // },
+        //非props特性，此时content="hello world"会加载在div中
+        template:`
+        <div>hell</div>
+        `
+    });
+
+    var vm = new Vue({
+        el: '#root'
+    })
+</script>
+</body>
+</html>

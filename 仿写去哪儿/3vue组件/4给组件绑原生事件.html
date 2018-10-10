@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+
+<!--<div id="root">-->
+    <!--<child @click="handleClick"></child>-->
+<!--</div>-->
+<!--<script>-->
+
+    <!--Vue.component('child', {-->
+       <!--template: '<div @click="handleClickClick">Child</div>',-->
+        <!--methods: {-->
+            <!--handleClickClick: function () {-->
+                <!--alert('1');-->
+                <!--this.$emit('click');-->
+            <!--}-->
+        <!--}-->
+    <!--});-->
+
+    <!--var vm = new Vue({-->
+        <!--el: '#root',-->
+        <!--methods:{-->
+            <!--handleClick: function () {-->
+                <!--alert(2);-->
+            <!--}-->
+        <!--}-->
+    <!--})-->
+<!--</script>-->
+
+<div id="root">
+    <child @click.native="handleClick"></child>
+</div>
+<script>
+
+    Vue.component('child', {
+        template: '<div>Child</div>',
+    });
+
+    var vm = new Vue({
+        el: '#root',
+        methods:{
+            handleClick: function () {
+                alert(2);
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+<div id="root">
+    <!--<component :is="show"></component>-->
+
+    <child-one v-if="show==='child-one'"></child-one>
+    <child-two v-if="show==='child-two'"></child-two>
+    <button @click="handleBtnClick">change</button>
+</div>
+<script>
+//v-once会把数据放在内存中，提高性能
+    Vue.component('child-one', {
+        template: `
+        <div v-once>
+           child-one
+        </div>
+        `
+    });
+
+    Vue.component('child-two', {
+        template: `
+        <div v-once>
+           child-two
+        </div>
+        `
+    });
+
+    var vm = new Vue({
+        el: '#root',
+        data:{
+            show:'child-one'
+        },
+        methods: {
+            handleBtnClick: function () {
+                this.show = this.show ==='child-one'?'child-two':'child-one';
+            }
+        }
+    })
+</script>
+</body>
+</html>
