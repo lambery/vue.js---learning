@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <style>
+        .v-enter, .v-leave-to{
+           opacity: 0;
+        }
+        .v-enter-active, .v-leave-active{
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="app">
+<!--mode="in-out"先进入后隐藏-->
+    <transition
+    mode="out-in"
+    >
+        <!--<div v-if="show" key="hello">hello world</div>-->
+        <!--<div v-else key="bye">bye</div>-->
+        <component :is="type"></component>
+        <!--<child v-if="show"></child>-->
+        <!--<child2 v-else></child2>-->
+    </transition>
+
+    <button @click="handleClick">切换</button>
+</div>
+
+<script>
+
+    Vue.component('child',{
+        template: `
+        <div>child</div>
+        `
+    });
+
+    Vue.component('child2',{
+        template: `
+        <div>child2</div>
+        `
+    });
+
+    var vm = new Vue({
+        el: '#app',
+        data:{
+//            show: true
+            type: 'child'
+        },
+        methods:{
+            handleClick: function () {
+//                this.show = !this.show;
+                this.type = this.type === 'child'?'child2':'child'
+            }
+        }
+    })
+</script>
+</body>
+</html>
